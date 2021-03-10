@@ -92,5 +92,11 @@ public class Player {
 	public void setTeamId(int teamId) {
 		this.teamId = teamId;
 	}
-	
-}
+
+	@Override
+	public String toString() {
+		return "Player [playerId=" + playerId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", skill=" + skill
+				+ ", numberOfMatches=" + numberOfMatches + ", runs=" + runs + ", wickets=" + wickets + ", nationality="
+				+ nationality + ", powerRating=" + powerRating + ", teamId=" + teamId + "]";
+	}
+	}

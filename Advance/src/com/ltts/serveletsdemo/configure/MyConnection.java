@@ -8,8 +8,8 @@ import java.util.Properties;
 
 public class MyConnection {
 	public static Connection getConnection() throws Exception {
-		//FileReader fr=new FileReader("src/db.properties");
-		InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("db.properties");
+	//FileReader fr=new FileReader("src/db.properties");
+		InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("db.properties"); 
 		Properties p=new Properties();
 		p.load(inputStream);
 		
@@ -21,7 +21,7 @@ public class MyConnection {
 		Connection con=DriverManager.getConnection(url,username,password);
 		System.out.println("Inside MyConnection..");
 		return con;
-	}
+	}}
 
 
-}
+

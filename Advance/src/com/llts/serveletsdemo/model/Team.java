@@ -43,9 +43,5 @@ public class Team {
 	public void setPlayerid(int playerid) {
 		this.playerid = playerid;
 	}
-	
-	
-	
-
 }
 
