@@ -45,18 +45,19 @@ public class playerDAO {
 		// TODO Auto-generated method stub
 		
 		Connection c=MyConnection.getConnection();
-		PreparedStatement ps=c.prepareStatement("UPDATE Player SET playerId = ?, name = ?,dateOfBirt = ?,skill = ?,number = ?,runs = ?,wickets = ?,nationality = ? ,powerRating = ? ,teamId = ? where Playerid=?");
-		ps.setInt(1,p.getPlayerId());
-		ps.setString(2,p.getName());
-		ps.setString(3,p.getDateOfBirth());
-		ps.setString(4,p.getSkill());
-		ps.setInt(5,p.getNumberOfMatches());
-		ps.setInt(6,p.getRuns());
-		ps.setInt(7,p.getWickets());
-		ps.setString(8,p.getNationality());
-		ps.setDouble(9,p.getPowerRating());
-		ps.setInt(10, p.getTeamId());
-		ps.setInt(11,p.getPlayerId());
+		PreparedStatement ps=c.prepareStatement("UPDATE Player SET  name = ?,dateOfBirt = ?,skill = ?,number = ?,runs = ?,wickets = ?,nationality = ? ,powerRating = ? ,teamId = ? where Playerid=?");
+
+		ps.setString(1,p.getName());
+		ps.setString(2,p.getDateOfBirth());
+		ps.setString(3,p.getSkill());
+		ps.setInt(4,p.getNumberOfMatches());
+		ps.setInt(5,p.getRuns());
+		ps.setInt(6,p.getWickets());
+		ps.setString(7,p.getNationality());
+		ps.setDouble(8,p.getPowerRating());
+		ps.setInt(9, p.getTeamId());
+		ps.setInt(10,p.getPlayerId());
+		System.out.println("welcome");
 	return ps.execute();
 	}
 	
@@ -66,7 +67,7 @@ public class playerDAO {
 		for(Player p1:li) {
 			if(p1.getPlayerId() == id) {
 				p.setPlayerId(id);
-				p.setTeamId(p1.getTeamId());
+				p.setPlayerId(p1.getPlayerId());
 				p.setName(p1.getName());
 				p.setDateOfBirth(p1.getDateOfBirth());
 				p.setSkill(p1.getSkill());

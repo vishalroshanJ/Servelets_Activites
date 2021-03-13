@@ -45,18 +45,18 @@ public class UpdatePlayerServlet extends HttpServlet {
 		
 			
 			  PrintWriter out = response.getWriter();
-			 // int playerId=Integer.parseInt(request.getParameter("Playerid"));
-			 // String name=request.getParameter("Name");
-			//  String dateOfBirth=request.getParameter("DateOfBirth");
-	         // String skill=request.getParameter("skill");
-			  //int numberOfMatches=Integer.parseInt(request.getParameter("numberOfMatches"));
-			//  int runs=Integer.parseInt(request.getParameter("runs"));
-			//  int wickets=Integer.parseInt(request.getParameter("Wickets")); 
-			//  String nationality=request.getParameter("Nationality");
-			 // double  powerRating=Double.parseDouble(request.getParameter("powerRating")); 
-			 // int teamId=Integer.parseInt(request.getParameter("teamId"));
+			  int playerId=Integer.parseInt(request.getParameter("Playerid"));
+			  String name=request.getParameter("Name");
+			 String dateOfBirth=request.getParameter("DateOfBirth");
+	         String skill=request.getParameter("skill");
+			 int numberOfMatches=Integer.parseInt(request.getParameter("numberOfMatches"));
+			 int runs=Integer.parseInt(request.getParameter("runs"));
+		      int wickets=Integer.parseInt(request.getParameter("Wickets")); 
+		     String nationality=request.getParameter("Nationality");
+			double  powerRating=Double.parseDouble(request.getParameter("powerRating")); 
+			int teamId=Integer.parseInt(request.getParameter("TeamId"));
 			 
-				Player p=new Player(123,"fgdg","dateOfBirth","skill",90,45,9,"inf",3.0,9);
+				Player p=new Player(playerId, name,dateOfBirth,skill,numberOfMatches, runs,wickets,nationality,powerRating,teamId);
 				System.out.println("Inside Update Player Servlet: ");
 				playerDAO pd=new playerDAO();
 				boolean b=false;
@@ -69,7 +69,7 @@ public class UpdatePlayerServlet extends HttpServlet {
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					out.write("Already Player id Used: "+e);
-					rd=request.getRequestDispatcher("addplayer.html");
+					rd=request.getRequestDispatcher("AddPlayer.html");
 					rd.include(request, response);
 					e.printStackTrace();
 				}

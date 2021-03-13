@@ -9,9 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% int id=Integer.parseInt(request.getParameter("id"));
+<% int tid=Integer.parseInt(request.getParameter("id"));
 playerDAO pd=new playerDAO();
-Player p1=pd.getPlayerById(id);
+Player p1=pd.getPlayerById(tid);
 %>
 <form action="./UpdatePlayerServlet" method="post">
 Player PlayerId:<input type="text" value="<%= p1.getPlayerId() %>" name="Playerid"><br><br>

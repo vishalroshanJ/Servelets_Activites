@@ -63,15 +63,14 @@ public class TeamDAO {
 			return t;
 		
 	}
-	public boolean updateTeam(int teamid, String teamname, String Coachname) throws Exception {
+	public boolean updateTeam(Team T) throws Exception {
 		// TODO Auto-generated method stub
 		
 		Connection c=MyConnection.getConnection();
-		PreparedStatement ps=c.prepareStatement("UPDATE Team SET coachname = ?,teamname = ? where idteam=?");
-		ps.setString(1,teamname);
-		ps.setString(2, Coachname);
-		
-		ps.setInt(3, teamid);
+		PreparedStatement ps=c.prepareStatement("UPDATE Team SET teamname = ?,coachname = ? where idteam=?");
+		ps.setString(1,T.getTeamName());
+		ps.setString(2,T.getCoachname());
+		ps.setInt(3,T.getTeamId());
 		
 	
 	return ps.execute();

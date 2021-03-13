@@ -16,20 +16,14 @@ import com.llts.serveletsdemo.model.Player;
 import com.ltts.serveletsdemo.dao.TeamDAO;
 import com.llts.serveletsdemo.model.Team;
 @WebServlet("/UpdateTeamServlet")
-public class UpdateTeamServlet {
-/**	package com.ltts.serveletsdemo.controller;
 
-
- * Servlet implementation class PlayerServlet
- */
-
-public class AddAuctionServelets extends HttpServlet {
+public class UpdateTeamServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public AddAuctionServelets() {
+    public UpdateTeamServlet() {
     	super();
         // TODO Auto-generated constructor stub
     }
@@ -51,7 +45,6 @@ public class AddAuctionServelets extends HttpServlet {
 	
 		PrintWriter out = response.getWriter(); 
 		int teamId=Integer.parseInt(request.getParameter("teamId"));
-		
 		String TeamName=request.getParameter("TeamName");
 		String Coachname=request.getParameter("Coachname");
 		
@@ -61,7 +54,7 @@ public class AddAuctionServelets extends HttpServlet {
 		boolean b=false;
 		RequestDispatcher rd=null;
 		try {
-			b=td.updateTeam(teamId,TeamName,Coachname); // Control TRanfers to Dao file
+			b=td.updateTeam(t); // Control TRanfers to Dao file
 			rd=request.getRequestDispatcher("success.html");
 			rd.forward(request, response);
 			//System.out.println("Successfully Inserted...");
@@ -72,5 +65,5 @@ public class AddAuctionServelets extends HttpServlet {
 			rd.include(request, response);
 			e.printStackTrace();
 		}
-	}}}
+	}}
 

@@ -16,14 +16,15 @@ List<Player> li=pd.getAllPlayers();
 <table>
 <tr>
 <th>Player Id</th>
-<th>Team ID</th>
+
 <th>Name</th>
 <th>DOB</th>
-<th>Email</th>
+<th>Skill</th>
 <th>Matches</th>
 <th>Runs</th>
 <th>Wickets</th>
-<th>Achievements</th>
+<th>Nationality</th>
+<th>Team ID</th>
 <th></th>
 </tr>
 <%
@@ -31,7 +32,6 @@ for(Player p:li){
 %>
 <tr>
 <td><%= p.getPlayerId() %></td>
-<td><%= p.getTeamId() %></td>
 <td><%= p.getName() %></td>
 <td><%= p.getDateOfBirth() %></td>
 <td><%= p.getSkill() %></td>
@@ -39,6 +39,7 @@ for(Player p:li){
 <td><%= p.getRuns() %></td>
 <td><%= p.getWickets() %></td>
 <td><%= p.getNationality() %></td>
+<td><%= p.getTeamId() %></td>
 <td><a href="editplayer.jsp?id=<%=p.getPlayerId()%>">Update</a></td>
 </tr>
 <%} %>
