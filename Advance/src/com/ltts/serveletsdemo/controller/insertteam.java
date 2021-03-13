@@ -2,7 +2,6 @@ package com.ltts.serveletsdemo.controller;
 
 import java.io.IOException;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,20 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.llts.serveletsdemo.model.Auction;
+import com.llts.serveletsdemo.model.Team;
 import com.ltts.serveletsdemo.dao.AuctionDAO;
+import com.ltts.serveletsdemo.dao.TeamDAO;
 
-/**
- * Servlet implementation class PlayerServlet
- */
-@WebServlet("/AddAuctionServelets")
-public class AddAuctionServelets extends HttpServlet {
+@WebServlet("/InsertTeamServlet")
+public class insertteam extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public AddAuctionServelets() {
-    	super();
+    public insertteam() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -41,24 +39,21 @@ public class AddAuctionServelets extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-	
-	    int auctionid=Integer.parseInt(request.getParameter("auctionid"));
-	    int teamid=Integer.parseInt(request.getParameter("teamid"));
-	    int playerid=Integer.parseInt(request.getParameter("playerid"));
-	    int year=Integer.parseInt(request.getParameter("year"));
-	    int amo=Integer.parseInt(request.getParameter("ammount"));
-	     Auction p=new  Auction(auctionid,teamid,playerid,year,amo);
-	    System.out.println("Inside Servlet: "+p);
-	    AuctionDAO pd=new  AuctionDAO();
+		int Teamid=Integer.parseInt(request.getParameter("Teamid"));
+		String Teamname=request.getParameter("Teamname");
+		String Teamowner=request.getParameter("Teamowner");
+		Team t = new Team(Teamid,Teamname,Teamowner);
+		System.out.println("Inside team Servlet:"+t);
+		TeamDAO td=new TeamDAO();
+		boolean b=false;
 		try {
-			pd.insertAuction(p); // Control TRanfers to Dao file
+			b=td.insertTeam(t); // Control TRanfers to Dao file
 			System.out.println("Successfully Inserted...");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
-		}		
-	    
+		}
+		
 	}
 
 }

@@ -1,8 +1,9 @@
 package com.ltts.serveletsdemo.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,12 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.llts.serveletsdemo.model.Auction;
-import com.ltts.serveletsdemo.dao.AuctionDAO;
+import com.ltts.serveletsdemo.dao.playerDAO;
+import com.llts.serveletsdemo.model.Player;
+import com.ltts.serveletsdemo.dao.TeamDAO;
+import com.llts.serveletsdemo.model.Team;
+@WebServlet("/UpdateTeamServlet")
+public class UpdateTeamServlet {
+/**	package com.ltts.serveletsdemo.controller;
 
-/**
+
  * Servlet implementation class PlayerServlet
  */
-@WebServlet("/AddAuctionServelets")
+
 public class AddAuctionServelets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -42,23 +49,28 @@ public class AddAuctionServelets extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 	
-	    int auctionid=Integer.parseInt(request.getParameter("auctionid"));
-	    int teamid=Integer.parseInt(request.getParameter("teamid"));
-	    int playerid=Integer.parseInt(request.getParameter("playerid"));
-	    int year=Integer.parseInt(request.getParameter("year"));
-	    int amo=Integer.parseInt(request.getParameter("ammount"));
-	     Auction p=new  Auction(auctionid,teamid,playerid,year,amo);
-	    System.out.println("Inside Servlet: "+p);
-	    AuctionDAO pd=new  AuctionDAO();
+		PrintWriter out = response.getWriter(); 
+		int teamId=Integer.parseInt(request.getParameter("teamId"));
+		
+		String TeamName=request.getParameter("TeamName");
+		String Coachname=request.getParameter("Coachname");
+		
+		Team t = new Team(teamId,TeamName,Coachname);
+		System.out.println("Inside Update Team Servlet: "+t);
+		TeamDAO td=new TeamDAO();
+		boolean b=false;
+		RequestDispatcher rd=null;
 		try {
-			pd.insertAuction(p); // Control TRanfers to Dao file
-			System.out.println("Successfully Inserted...");
+			b=td.updateTeam(teamId,TeamName,Coachname); // Control TRanfers to Dao file
+			rd=request.getRequestDispatcher("success.html");
+			rd.forward(request, response);
+			//System.out.println("Successfully Inserted...");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			out.write("Already Team id Used: "+e);
+			rd=request.getRequestDispatcher("addteam.html");
+			rd.include(request, response);
 			e.printStackTrace();
-			
-		}		
-	    
-	}
+		}
+	}}}
 
-}

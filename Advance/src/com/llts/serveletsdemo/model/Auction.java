@@ -2,7 +2,7 @@ package com.llts.serveletsdemo.model;
 
 public class Auction {
 private int auctionid;
-private String teamname;
+private int Ammount;
 private int teamid;
 private int playerid;
 private int year;
@@ -12,13 +12,13 @@ private int year;
 public Auction() {
 	super();
 }
-public Auction(int auctionid,String teamname, int teamid, int playerid, int year) {
+public Auction(int auctionid, int teamid, int playerid, int year,int Ammount) {
 	super();
 	this.auctionid = auctionid;
-	this.teamname=teamname;
 	this.teamid = teamid;
 	this.playerid = playerid;
 	this.year = year;
+	this.Ammount=Ammount;
 }
 
 public int getAuctionid() {
@@ -45,15 +45,15 @@ public int getYear() {
 public void setYear(int year) {
 	this.year = year;
 }
-public String getTeamname() {
-	return teamname;
+public int getAmmount() {
+	return Ammount;
 }
-public void setTeamname(String teamname) {
-	this.teamname = teamname;
+public void setAmmount(int Ammount) {
+	this.Ammount = Ammount;
 }
 @Override
 public String toString() {
-	return "Auction [auctionid=" + auctionid + ", teamname=" + teamname + ", teamid=" + teamid + ", playerid="
+	return "Auction [auctionid=" + auctionid + ", teamname=" + Ammount + ", teamid=" + teamid + ", playerid="
 			+ playerid + ", year=" + year + "]";
 }
 
