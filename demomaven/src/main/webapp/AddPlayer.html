@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+.mydiv1{
+background-color:rgb(6, 98, 141);
+text-align: center;
+border: 1px outset black;
+  
+}
+.mydiv2{
+background-color:lightblue;
+text-align: center;
+border: 1px outset black;
+  }
+ </style>
+<meta charset="ISO-8859-1">
+<title>Adding The Player Record</title>
+</head>
+<body >
+<div class="mydiv1">
+<h2>Player details</h2>
+</div>
+<div class="mydiv2">
+   <center>
+<form action="./AddPlayerServelets" method="post">
+ <table>
+      <tbody>
+         <tr>
+            <td>
+              Player ID
+            </td>
+            <td>
+               <input type="text" name="PlayerId" class="heading" placeholder="Enter ID" required autofocus><br><br>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              Player Name
+            </td>
+            <td>
+               <input type="text" name="name" class="heading" placeholder="Enter Name" required autofocus><br><br>
+            </td>
+         </tr>
+         <tr>
+            <td>
+            Date Of Birth
+            </td>
+            <td>
+               <input type="text" name="dateOfBirth" class="heading" placeholder="Enter DOB" required autofocus><br><br>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              Player skill
+            </td>
+            <td>
+               <input type="text" name="skill" class="heading" placeholder="Enter skill" required autofocus><br><br>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              Number Of Matches
+            </td>
+            <td>
+               <input type="text" name="numberOfMatches" class="heading" placeholder="numberOfMatches" required autofocus><br><br>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              Player runs
+            </td>
+            <td>
+               <input type="text" name="runs" class="heading" placeholder="Enter runs" required autofocus><br><br>
+            </td>
+         </tr>
+           </tr>
+         <tr>
+            <td>
+              Wickets
+            </td>
+            <td>
+               <input type="text" name="wickets" class="heading" placeholder="Enter wickets" required autofocus><br><br>
+            </td>
+         </tr>
+           </tr>
+         <tr>
+            <td>
+              Player Nationality
+            </td>
+            <td>
+               <input type="text" name="nationality" class="heading" placeholder="Enter nationality" required autofocus><br><br>
+            </td>
+         </tr>
+           </tr>
+         <tr>
+            <td>
+              Player powerRating
+            </td>
+            <td>
+               <input type="text" name="powerRating" class="heading" placeholder="Enter powerRating" required autofocus><br><br>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              Player teamId
+            </td>
+            <td>
+               <input type="text" name="teamId" class="heading" placeholder="EnterteamId" required autofocus><br><br>
+            </td>
+         </tr>
+</tbody>
+</table>
+</form>
+ </center>
+</div>
+<div class="mydiv1">
+<input type="submit" value="Add Player">
+</div>
+</body>
+</html>
